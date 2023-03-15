@@ -6,13 +6,11 @@ import {
   FlatList,
   Dimensions,
   Animated,
+  StyleSheet,
 } from "react-native";
 import Pagination from "../Components/Pagination";
 import MainBottom from "../Constant/MainBottom";
 const Welcome = ({ navigation }) => {
-  const window = Dimensions.get("window");
-  const width = window.width;
-  const height = window.height;
   const Images = [
     {
       image: require("../assets/Images/Untitled.png"),
@@ -33,46 +31,12 @@ const Welcome = ({ navigation }) => {
   ];
 
   const ImagesSlideItem = ({ item }) => (
-    <View style={{ alignItems: "center", width: width }}>
-      <Image
-        source={item.image}
-        style={{
-          width: width,
-          height: height * 0.4,
-          resizeMode: "cover",
-          marginBottom: 60,
-        }}
-      />
-      <View
-        style={{ justifyContent: "center", alignItems: "center", width: "90%" }}
-      >
-        <Text
-          style={{
-            fontSize: 40,
-            color: "#ee6723",
-            fontWeight: "bold",
-          }}
-        >
-          {item.title}
-        </Text>
-        <Text
-          style={{
-            fontSize: 40,
-            color: "#ee6723",
-            fontWeight: "bold",
-          }}
-        >
-          {item.title2}
-        </Text>
-        <Text
-          style={{
-            fontSize: 30,
-            color: "#ee6723",
-            fontWeight: "bold",
-          }}
-        >
-          {item.title3}
-        </Text>
+    <View style={Styles.ProContainer}>
+      <Image source={item.image} style={Styles.logo} />
+      <View style={Styles.innerCont}>
+        <Text style={Styles.textInner}>{item.title}</Text>
+        <Text style={Styles.textInner}>{item.title2}</Text>
+        <Text style={Styles.textInner}>{item.title3}</Text>
       </View>
     </View>
   );
@@ -108,17 +72,8 @@ const Welcome = ({ navigation }) => {
   }).current;
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#FFFFFF",
-      }}
-    >
-      <View
-        style={{ height: height * 0.7, alignItems: "center", marginBottom: 40 }}
-      >
+    <View style={Styles.mainCont}>
+      <View style={Styles.flatCont}>
         <FlatList
           ref={flatListRef}
           data={Images}
@@ -134,7 +89,7 @@ const Welcome = ({ navigation }) => {
         />
         <Pagination data={Images} scrollX={scrollX} index={index} />
       </View>
-      <View style={{ alignItems: "center", width: "90%" }}>
+      <View style={Styles.btnCont}>
         <MainBottom
           onPress={handleSubmit}
           background={"#ee6723"}
@@ -148,3 +103,50 @@ const Welcome = ({ navigation }) => {
 };
 
 export default Welcome;
+const window = Dimensions.get("window");
+const width = window.width;
+const height = window.height;
+const Styles = StyleSheet.create({
+  ProContainer: { alignItems: "center", width: width },
+  screen4: {
+    alignItems: "center",
+    width: width,
+    justifyContent: "center",
+  },
+  screen4Text: {
+    fontSize: 40,
+    color: "#ee6723",
+    fontWeight: "bold",
+  },
+  mainCont: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+  },
+  btnCont: {
+    alignItems: "center",
+    width: "90%",
+  },
+  flatCont: {
+    height: height * 0.7,
+    alignItems: "center",
+    marginBottom: 40,
+  },
+  logo: {
+    width: width,
+    height: height * 0.4,
+    resizeMode: "cover",
+    marginBottom: 60,
+  },
+  innerCont: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "90%",
+  },
+  textInner: {
+    fontSize: 40,
+    color: "#ee6723",
+    fontWeight: "bold",
+  },
+});

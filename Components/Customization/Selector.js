@@ -7,6 +7,7 @@ import {
   Animated,
   Image,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import MainBottom from "../../Constant/MainBottom";
 const Selector = ({ onPress, onPress2 }) => {
@@ -197,11 +198,10 @@ const Selector = ({ onPress, onPress2 }) => {
 };
 
 export default Selector;
+const window = Dimensions.get("window");
+const width = window.width;
 const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "90%",
-  },
+  ProContainer: { alignItems: "center", width: width },
   logoCont: {
     justifyContent: "center",
     alignItems: "center",

@@ -149,7 +149,7 @@ const LoginScreen = ({ navigation }) => {
           </View>
           <View style={Styles.PrivacyCont}>
             <Text style={Styles.PrivacyText}>
-              By clicking "Create account" ,I agree to SnackOverflow's{" "}
+              By clicking "Create account" ,I agree to SnackOverflow's
               <Text style={Styles.PrivacyText2}>TOS</Text> and
               <Text style={Styles.PrivacyText2}> Privacy policy</Text>
             </Text>

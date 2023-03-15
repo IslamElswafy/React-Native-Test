@@ -8,14 +8,7 @@ const Edit = ({ navigation }) => {
   };
   return (
     <View style={Styles.container}>
-      <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          alignItems: "center",
-          marginLeft: 20,
-        }}
-      >
+      <View style={Styles.RoutCont}>
         <AntDesign
           name="close"
           size={24}
@@ -23,31 +16,13 @@ const Edit = ({ navigation }) => {
           style={{ marginRight: 80 }}
           onPress={handleSubmit}
         />
-        <Text style={{ fontSize: 25, fontWeight: "bold", color: "black" }}>
-          Edit personal info
-        </Text>
+        <Text style={Styles.RoutText}>Edit personal info</Text>
       </View>
-      <View
-        style={{
-          marginTop: 20,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "90%",
-        }}
-      >
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>First name</Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold", marginRight: 70 }}>
-          Last name
-        </Text>
+      <View style={Styles.textCont}>
+        <Text style={Styles.nameText}>First name</Text>
+        <Text style={Styles.LnameText}>Last name</Text>
       </View>
-      <View
-        style={{
-          marginTop: 5,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "90%",
-        }}
-      >
+      <View style={Styles.inputCont}>
         <TextInput
           style={Styles.input}
           name="First name"
@@ -61,13 +36,8 @@ const Edit = ({ navigation }) => {
           placeholderTextColor={"#cbc9cb"}
         />
       </View>
-      <View
-        style={{
-          marginTop: 20,
-          width: "90%",
-        }}
-      >
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Height</Text>
+      <View style={Styles.heightCont}>
+        <Text style={Styles.heightText}>Height</Text>
         <TextInput
           style={[Styles.input, { width: "100%" }]}
           name=" Last name"
@@ -75,13 +45,8 @@ const Edit = ({ navigation }) => {
           placeholderTextColor={"#cbc9cb"}
         />
       </View>
-      <View
-        style={{
-          marginTop: 20,
-          width: "90%",
-        }}
-      >
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>weight</Text>
+      <View style={Styles.heightCont}>
+        <Text style={Styles.heightText}>weight</Text>
         <TextInput
           style={[Styles.input, { width: "100%" }]}
           name=" Last name"
@@ -89,13 +54,7 @@ const Edit = ({ navigation }) => {
           placeholderTextColor={"#cbc9cb"}
         />
       </View>
-      <View
-        style={{
-          marginTop: 20,
-          marginBottom: 150,
-          width: "90%",
-        }}
-      >
+      <View style={Styles.lastCont}>
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
           where do you live
         </Text>
@@ -111,9 +70,7 @@ const Edit = ({ navigation }) => {
           placeholderTextColor={"#cbc9cb"}
         />
       </View>
-      <View
-        style={{ width: "90%", alignItems: "center", justifyContent: "center" }}
-      >
+      <View style={Styles.btnCont}>
         <MainBottom
           onPress={handleSubmit}
           background={"#ee6723"}
@@ -200,5 +157,55 @@ const Styles = StyleSheet.create({
     borderColor: "#fff",
     borderWidth: 1,
     fontSize: 20,
+  },
+  RoutCont: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 20,
+  },
+  RoutText: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "black",
+  },
+  textCont: {
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "90%",
+  },
+  nameText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  LnameText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginRight: 70,
+  },
+  inputCont: {
+    marginTop: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "90%",
+  },
+  heightCont: {
+    marginTop: 20,
+    width: "90%",
+  },
+  heightText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  lastCont: {
+    marginTop: 20,
+    marginBottom: 150,
+    width: "90%",
+  },
+  btnCont: {
+    width: "90%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -46,7 +46,7 @@ const SignIn = ({ navigation }) => {
             Sign In with Apple
           </SignInBottom>
           <View style={Styles.bar}></View>
-          <View style={{ alignItems: "center", width: "95%" }}>
+          <View style={Styles.btnCont}>
             <MainBottom
               background={"#fff"}
               TextColor={"#ee6723"}
@@ -106,4 +106,5 @@ const Styles = StyleSheet.create({
     opacity: 0.5,
     marginBottom: 35,
   },
+  btnCont: { alignItems: "center", width: "95%" },
 });

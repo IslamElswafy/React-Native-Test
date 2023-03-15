@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import {
   Text,
-  Image,
+  StyleSheet,
   View,
   FlatList,
   Dimensions,
@@ -12,9 +12,6 @@ import Profile from "../Components/Customization/Profile";
 import Goal from "../Components/Customization/Goal";
 import Selector from "../Components/Customization/Selector";
 const Customization = ({ navigation }) => {
-  const window = Dimensions.get("window");
-  const width = window.width;
-  const height = window.height;
   const Images = [
     {
       image: 1,
@@ -33,13 +30,13 @@ const Customization = ({ navigation }) => {
   const ImagesSlideItem = ({ item, index }) => {
     if (index === 0) {
       return (
-        <View style={{ alignItems: "center", width: width }}>
+        <View style={Styles.ProContainer}>
           <Profile handleSubmit={() => navigation.navigate("Edit")} />
         </View>
       );
     } else if (index === 1) {
       return (
-        <View style={{ alignItems: "center", width: width }}>
+        <View style={Styles.ProContainer}>
           <Goal
             onPress={() => flatListRef.current.scrollToIndex({ index: 2 })}
             onPress2={() => flatListRef.current.scrollToIndex({ index: 0 })}
@@ -48,7 +45,7 @@ const Customization = ({ navigation }) => {
       );
     } else if (index === 2) {
       return (
-        <View style={{ alignItems: "center", width: width }}>
+        <View style={Styles.ProContainer}>
           <Selector
             onPress={() => flatListRef.current.scrollToIndex({ index: 3 })}
             onPress2={() => flatListRef.current.scrollToIndex({ index: 1 })}
@@ -57,22 +54,8 @@ const Customization = ({ navigation }) => {
       );
     } else if (index === 3) {
       return (
-        <View
-          style={{
-            alignItems: "center",
-            width: width,
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 40,
-              color: "#ee6723",
-              fontWeight: "bold",
-            }}
-          >
-            Coming in the future
-          </Text>
+        <View style={Styles.screen4}>
+          <Text style={Styles.screen4Text}>Coming in the future</Text>
         </View>
       );
     }
@@ -108,16 +91,11 @@ const Customization = ({ navigation }) => {
   }).current;
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#FFFFFF",
-      }}
-    >
-      <View style={{ marginHorizontal: 10, marginTop: 20, marginBottom: 20 }}>
+    <View style={Styles.mainCont}>
+      <View style={Styles.btnCont}>
         <MainPagination data={Images} scrollX={scrollX} index={index} />
       </View>
-      <View style={{ height: height, alignItems: "center", marginBottom: 40 }}>
+      <View style={Styles.flatCont}>
         <FlatList
           ref={flatListRef}
           data={Images}
@@ -139,3 +117,36 @@ const Customization = ({ navigation }) => {
 };
 
 export default Customization;
+const window = Dimensions.get("window");
+const width = window.width;
+const height = window.height;
+const Styles = StyleSheet.create({
+  ProContainer: {
+    alignItems: "center",
+    width: width,
+  },
+  screen4: {
+    alignItems: "center",
+    width: width,
+    justifyContent: "center",
+  },
+  screen4Text: {
+    fontSize: 40,
+    color: "#ee6723",
+    fontWeight: "bold",
+  },
+  mainCont: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
+  btnCont: {
+    marginHorizontal: 10,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  flatCont: {
+    height: height,
+    alignItems: "center",
+    marginBottom: 40,
+  },
+});
