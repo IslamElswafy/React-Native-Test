@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
   const [visible, setVisible] = React.useState(true);
 
   const handleSubmit = () => {
-    navigation.navigate("SignIn");
+    navigation.navigate("Customization");
   };
   return (
     <ScrollView style={Styles.screen} showsVerticalScrollIndicator={false}>

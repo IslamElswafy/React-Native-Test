@@ -10,11 +10,6 @@ import {
 import Pagination from "../Components/Pagination";
 import MainBottom from "../Constant/MainBottom";
 const Welcome = ({ navigation }) => {
-  const size = 60;
-  const strokeWidth = 2;
-  const center = size / 2;
-  const radius = size / 2 - strokeWidth / 2;
-  const circumference = 2 * Math.PI * radius;
   const window = Dimensions.get("window");
   const width = window.width;
   const height = window.height;
