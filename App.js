@@ -1,13 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import TodoList from "./Components/ToDo";
-import ItemBox from "./Components/ItemBox";
-import WeatherApp from "./Components/Wither";
+import { StyleSheet, View } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
+import OpeningStack from "./Components/OpeningStack";
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <WeatherApp />
+      <PaperProvider>
+        <StatusBar Style="auto" />
+        <OpeningStack />
+      </PaperProvider>
     </View>
   );
 }
