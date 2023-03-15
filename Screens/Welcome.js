@@ -140,7 +140,13 @@ const Welcome = ({ navigation }) => {
         <Pagination data={Images} scrollX={scrollX} index={index} />
       </View>
       <View style={{ alignItems: "center", width: "90%" }}>
-        <MainBottom onPress={handleSubmit}>Get started</MainBottom>
+        <MainBottom
+          onPress={handleSubmit}
+          background={"#ee6723"}
+          TextColor={"#fff"}
+        >
+          Get started
+        </MainBottom>
       </View>
     </View>
   );

@@ -1,14 +1,18 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
+import { Text, View, Pressable, StyleSheet, Image } from "react-native";
 
-function SignInBottom({ children, onPress, disabled, containerStyle }) {
+function SignInBottom({ children, onPress, TextColor, background, source }) {
   return (
-    <View style={[Styles.container, containerStyle]}>
+    <View style={[Styles.container, { backgroundColor: background }]}>
       <Pressable
         onPress={onPress}
-        disabled={disabled}
-        style={({ pressed }) => (pressed ? [Styles.Press] : Styles.inner)}
+        style={({ pressed }) =>
+          pressed ? [Styles.Press, Styles.inner] : Styles.inner
+        }
       >
-        <Text style={Styles.btnText}>{children}</Text>
+        <View style={Styles.logoCont}>
+          <Image source={source} style={Styles.logo} />
+        </View>
+        <Text style={[Styles.btnText, { color: TextColor }]}>{children}</Text>
       </Pressable>
     </View>
   );
@@ -22,8 +26,8 @@ const Styles = StyleSheet.create({
     borderRadius: 10,
     width: "90%",
     alignItems: "center",
-    justifyContent: "center",
     height: 60,
+    flexDirection: "row",
   },
   btnText: {
     fontSize: 18,
@@ -40,5 +44,15 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: 60,
+  },
+  logoCont: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#000",
+    marginRight: 20,
+  },
+  logo: {
+    width: 40,
+    height: 40,
   },
 });

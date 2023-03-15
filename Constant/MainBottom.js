@@ -1,14 +1,13 @@
 import { Text, View, Pressable, StyleSheet } from "react-native";
 
-function mainBottom({ children, onPress, disabled, containerStyle }) {
+function mainBottom({ children, onPress, background, TextColor }) {
   return (
-    <View style={[Styles.container, containerStyle]}>
+    <View style={[Styles.container, { backgroundColor: background }]}>
       <Pressable
         onPress={onPress}
-        disabled={disabled}
         style={({ pressed }) => (pressed ? [Styles.Press] : Styles.inner)}
       >
-        <Text style={Styles.btnText}>{children}</Text>
+        <Text style={[Styles.btnText, { color: TextColor }]}>{children}</Text>
       </Pressable>
     </View>
   );
