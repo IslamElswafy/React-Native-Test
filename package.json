@@ -16,7 +16,9 @@
     "react-native": "0.71.3",
     "react-native-paper": "^5.0.1",
     "@react-navigation/native": "^6.1.0",
-    "@react-navigation/stack": "^6.3.10"
+    "@react-navigation/stack": "^6.3.10",
+    "formik": "^2.2.9",
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

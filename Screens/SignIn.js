@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  Text,
-  Image,
-  View,
-  Pressable,
-  StyleSheet,
-  ImageBackground,
-} from "react-native";
+import { Image, View, StyleSheet, ImageBackground } from "react-native";
 import SignInBottom from "../Constant/SignInBottom";
 import MainBottom from "../Constant/MainBottom";
 
 const SignIn = ({ navigation }) => {
+  const handleSubmit = () => {
+    navigation.navigate("LoginScreen");
+  };
   return (
     <View style={Styles.container}>
       <ImageBackground
@@ -51,7 +47,11 @@ const SignIn = ({ navigation }) => {
           </SignInBottom>
           <View style={Styles.bar}></View>
           <View style={{ alignItems: "center", width: "95%" }}>
-            <MainBottom background={"#fff"} TextColor={"#ee6723"}>
+            <MainBottom
+              background={"#fff"}
+              TextColor={"#ee6723"}
+              onPress={handleSubmit}
+            >
               Sign up with Email
             </MainBottom>
           </View>

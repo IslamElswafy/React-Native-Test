@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import Welcome from "../Screens/Welcome";
 import SignIn from "../Screens/SignIn";
+import LoginScreen from "../Screens/LogIn";
 const stack = createStackNavigator();
 
 const OpeningStack = () => {
@@ -16,6 +17,7 @@ const OpeningStack = () => {
       >
         <stack.Screen name="Welcome" component={Welcome} />
         <stack.Screen name="SignIn" component={SignIn} />
+        <stack.Screen name="LoginScreen" component={LoginScreen} />
       </stack.Navigator>
     </NavigationContainer>
   );
